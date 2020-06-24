@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ViewModels.sewaVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Sewa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_User)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Buku)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HargaSewa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tglMulai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tglSelesai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numberOfDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sewaAmount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Sewa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_User)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Buku)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HargaSewa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tglMulai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tglSelesai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numberOfDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sewaAmount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

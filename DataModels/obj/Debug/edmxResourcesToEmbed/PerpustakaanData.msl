@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PerpustakaanModelStoreContainer" CdmEntityContainer="PerpustakaanDBEntities">
+    <EntitySetMapping Name="Bukus">
+      <EntityTypeMapping TypeName="PerpustakaanModel.Buku">
+        <MappingFragment StoreEntitySet="Buku">
+          <ScalarProperty Name="ID_Buku" ColumnName="ID_Buku" />
+          <ScalarProperty Name="JudulBuku" ColumnName="JudulBuku" />
+          <ScalarProperty Name="Pengarang" ColumnName="Pengarang" />
+          <ScalarProperty Name="jenisBuku" ColumnName="jenisBuku" />
+          <ScalarProperty Name="HargaSewa" ColumnName="HargaSewa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Register_User">
+      <EntityTypeMapping TypeName="PerpustakaanModel.Register_User">
+        <MappingFragment StoreEntitySet="Register_User">
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="NamaUser" ColumnName="NamaUser" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sewas">
+      <EntityTypeMapping TypeName="PerpustakaanModel.Sewa">
+        <MappingFragment StoreEntitySet="Sewa">
+          <ScalarProperty Name="ID_Sewa" ColumnName="ID_Sewa" />
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+          <ScalarProperty Name="ID_Buku" ColumnName="ID_Buku" />
+          <ScalarProperty Name="HargaSewa" ColumnName="HargaSewa" />
+          <ScalarProperty Name="tglMulai" ColumnName="tglMulai" />
+          <ScalarProperty Name="tglSelesai" ColumnName="tglSelesai" />
+          <ScalarProperty Name="numberOfDay" ColumnName="numberOfDay" />
+          <ScalarProperty Name="sewaAmount" ColumnName="sewaAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

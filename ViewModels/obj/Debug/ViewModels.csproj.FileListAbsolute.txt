@@ -1,0 +1,6 @@
+E:\test\New folder\PerpustakaanMVC\ViewModels\bin\Debug\ViewModels.dll
+E:\test\New folder\PerpustakaanMVC\ViewModels\bin\Debug\ViewModels.pdb
+E:\test\New folder\PerpustakaanMVC\ViewModels\obj\Debug\ViewModels.csprojAssemblyReference.cache
+E:\test\New folder\PerpustakaanMVC\ViewModels\obj\Debug\ViewModels.csproj.CoreCompileInputs.cache
+E:\test\New folder\PerpustakaanMVC\ViewModels\obj\Debug\ViewModels.dll
+E:\test\New folder\PerpustakaanMVC\ViewModels\obj\Debug\ViewModels.pdb

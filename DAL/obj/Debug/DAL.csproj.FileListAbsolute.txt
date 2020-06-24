@@ -1,0 +1,17 @@
+E:\test\New folder\PerpustakaanMVC\DAL\bin\Debug\DAL.dll.config
+E:\test\New folder\PerpustakaanMVC\DAL\bin\Debug\DAL.dll
+E:\test\New folder\PerpustakaanMVC\DAL\bin\Debug\DAL.pdb
+E:\test\New folder\PerpustakaanMVC\DAL\bin\Debug\DataModels.dll
+E:\test\New folder\PerpustakaanMVC\DAL\bin\Debug\EntityFramework.dll
+E:\test\New folder\PerpustakaanMVC\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\test\New folder\PerpustakaanMVC\DAL\bin\Debug\ViewModels.dll
+E:\test\New folder\PerpustakaanMVC\DAL\bin\Debug\DataModels.pdb
+E:\test\New folder\PerpustakaanMVC\DAL\bin\Debug\DataModels.dll.config
+E:\test\New folder\PerpustakaanMVC\DAL\bin\Debug\ViewModels.pdb
+E:\test\New folder\PerpustakaanMVC\DAL\bin\Debug\EntityFramework.xml
+E:\test\New folder\PerpustakaanMVC\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\test\New folder\PerpustakaanMVC\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\test\New folder\PerpustakaanMVC\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\test\New folder\PerpustakaanMVC\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\test\New folder\PerpustakaanMVC\DAL\obj\Debug\DAL.dll
+E:\test\New folder\PerpustakaanMVC\DAL\obj\Debug\DAL.pdb

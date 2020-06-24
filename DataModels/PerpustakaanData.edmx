@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PerpustakaanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Buku">
+          <Key>
+            <PropertyRef Name="ID_Buku" />
+          </Key>
+          <Property Name="ID_Buku" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="JudulBuku" Type="nvarchar" MaxLength="300" />
+          <Property Name="Pengarang" Type="nvarchar" MaxLength="300" />
+          <Property Name="jenisBuku" Type="nvarchar" MaxLength="300" />
+          <Property Name="HargaSewa" Type="int" />
+        </EntityType>
+        <EntityType Name="Register_User">
+          <Key>
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="NamaUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sewa">
+          <Key>
+            <PropertyRef Name="ID_Sewa" />
+          </Key>
+          <Property Name="ID_Sewa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_User" Type="int" />
+          <Property Name="ID_Buku" Type="nvarchar" MaxLength="10" />
+          <Property Name="HargaSewa" Type="int" />
+          <Property Name="tglMulai" Type="date" />
+          <Property Name="tglSelesai" Type="date" />
+          <Property Name="numberOfDay" Type="int" />
+          <Property Name="sewaAmount" Type="int" />
+        </EntityType>
+        <Association Name="FK__Sewa__ID_Buku__286302EC">
+          <End Role="Buku" Type="Self.Buku" Multiplicity="0..1" />
+          <End Role="Sewa" Type="Self.Sewa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buku">
+              <PropertyRef Name="ID_Buku" />
+            </Principal>
+            <Dependent Role="Sewa">
+              <PropertyRef Name="ID_Buku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sewa__ID_User__276EDEB3">
+          <End Role="Register_User" Type="Self.Register_User" Multiplicity="0..1" />
+          <End Role="Sewa" Type="Self.Sewa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Register_User">
+              <PropertyRef Name="ID_User" />
+            </Principal>
+            <Dependent Role="Sewa">
+              <PropertyRef Name="ID_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PerpustakaanModelStoreContainer">
+          <EntitySet Name="Buku" EntityType="Self.Buku" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Register_User" EntityType="Self.Register_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sewa" EntityType="Self.Sewa" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Sewa__ID_Buku__286302EC" Association="Self.FK__Sewa__ID_Buku__286302EC">
+            <End Role="Buku" EntitySet="Buku" />
+            <End Role="Sewa" EntitySet="Sewa" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sewa__ID_User__276EDEB3" Association="Self.FK__Sewa__ID_User__276EDEB3">
+            <End Role="Register_User" EntitySet="Register_User" />
+            <End Role="Sewa" EntitySet="Sewa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PerpustakaanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Buku">
+          <Key>
+            <PropertyRef Name="ID_Buku" />
+          </Key>
+          <Property Name="ID_Buku" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JudulBuku" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Pengarang" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="jenisBuku" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="HargaSewa" Type="Int32" />
+          <NavigationProperty Name="Sewas" Relationship="Self.FK__Sewa__ID_Buku__286302EC" FromRole="Buku" ToRole="Sewa" />
+        </EntityType>
+        <EntityType Name="Register_User">
+          <Key>
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NamaUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Sewas" Relationship="Self.FK__Sewa__ID_User__276EDEB3" FromRole="Register_User" ToRole="Sewa" />
+        </EntityType>
+        <EntityType Name="Sewa">
+          <Key>
+            <PropertyRef Name="ID_Sewa" />
+          </Key>
+          <Property Name="ID_Sewa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_User" Type="Int32" />
+          <Property Name="ID_Buku" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="HargaSewa" Type="Int32" />
+          <Property Name="tglMulai" Type="DateTime" Precision="0" />
+          <Property Name="tglSelesai" Type="DateTime" Precision="0" />
+          <Property Name="numberOfDay" Type="Int32" />
+          <Property Name="sewaAmount" Type="Int32" />
+          <NavigationProperty Name="Buku" Relationship="Self.FK__Sewa__ID_Buku__286302EC" FromRole="Sewa" ToRole="Buku" />
+          <NavigationProperty Name="Register_User" Relationship="Self.FK__Sewa__ID_User__276EDEB3" FromRole="Sewa" ToRole="Register_User" />
+        </EntityType>
+        <Association Name="FK__Sewa__ID_Buku__286302EC">
+          <End Role="Buku" Type="Self.Buku" Multiplicity="0..1" />
+          <End Role="Sewa" Type="Self.Sewa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buku">
+              <PropertyRef Name="ID_Buku" />
+            </Principal>
+            <Dependent Role="Sewa">
+              <PropertyRef Name="ID_Buku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sewa__ID_User__276EDEB3">
+          <End Role="Register_User" Type="Self.Register_User" Multiplicity="0..1" />
+          <End Role="Sewa" Type="Self.Sewa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Register_User">
+              <PropertyRef Name="ID_User" />
+            </Principal>
+            <Dependent Role="Sewa">
+              <PropertyRef Name="ID_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PerpustakaanDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bukus" EntityType="Self.Buku" />
+          <EntitySet Name="Register_User" EntityType="Self.Register_User" />
+          <EntitySet Name="Sewas" EntityType="Self.Sewa" />
+          <AssociationSet Name="FK__Sewa__ID_Buku__286302EC" Association="Self.FK__Sewa__ID_Buku__286302EC">
+            <End Role="Buku" EntitySet="Bukus" />
+            <End Role="Sewa" EntitySet="Sewas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sewa__ID_User__276EDEB3" Association="Self.FK__Sewa__ID_User__276EDEB3">
+            <End Role="Register_User" EntitySet="Register_User" />
+            <End Role="Sewa" EntitySet="Sewas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PerpustakaanModelStoreContainer" CdmEntityContainer="PerpustakaanDBEntities">
+          <EntitySetMapping Name="Bukus">
+            <EntityTypeMapping TypeName="PerpustakaanModel.Buku">
+              <MappingFragment StoreEntitySet="Buku">
+                <ScalarProperty Name="ID_Buku" ColumnName="ID_Buku" />
+                <ScalarProperty Name="JudulBuku" ColumnName="JudulBuku" />
+                <ScalarProperty Name="Pengarang" ColumnName="Pengarang" />
+                <ScalarProperty Name="jenisBuku" ColumnName="jenisBuku" />
+                <ScalarProperty Name="HargaSewa" ColumnName="HargaSewa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Register_User">
+            <EntityTypeMapping TypeName="PerpustakaanModel.Register_User">
+              <MappingFragment StoreEntitySet="Register_User">
+                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="NamaUser" ColumnName="NamaUser" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sewas">
+            <EntityTypeMapping TypeName="PerpustakaanModel.Sewa">
+              <MappingFragment StoreEntitySet="Sewa">
+                <ScalarProperty Name="ID_Sewa" ColumnName="ID_Sewa" />
+                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+                <ScalarProperty Name="ID_Buku" ColumnName="ID_Buku" />
+                <ScalarProperty Name="HargaSewa" ColumnName="HargaSewa" />
+                <ScalarProperty Name="tglMulai" ColumnName="tglMulai" />
+                <ScalarProperty Name="tglSelesai" ColumnName="tglSelesai" />
+                <ScalarProperty Name="numberOfDay" ColumnName="numberOfDay" />
+                <ScalarProperty Name="sewaAmount" ColumnName="sewaAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

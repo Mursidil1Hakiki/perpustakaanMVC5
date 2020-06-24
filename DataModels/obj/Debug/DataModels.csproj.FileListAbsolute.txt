@@ -1,0 +1,12 @@
+E:\test\New folder\PerpustakaanMVC\DataModels\bin\Debug\DataModels.dll.config
+E:\test\New folder\PerpustakaanMVC\DataModels\bin\Debug\DataModels.dll
+E:\test\New folder\PerpustakaanMVC\DataModels\bin\Debug\DataModels.pdb
+E:\test\New folder\PerpustakaanMVC\DataModels\bin\Debug\EntityFramework.dll
+E:\test\New folder\PerpustakaanMVC\DataModels\bin\Debug\EntityFramework.SqlServer.dll
+E:\test\New folder\PerpustakaanMVC\DataModels\bin\Debug\EntityFramework.xml
+E:\test\New folder\PerpustakaanMVC\DataModels\bin\Debug\EntityFramework.SqlServer.xml
+E:\test\New folder\PerpustakaanMVC\DataModels\obj\Debug\DataModels.csproj.CoreCompileInputs.cache
+E:\test\New folder\PerpustakaanMVC\DataModels\obj\Debug\DataModels.csproj.CopyComplete
+E:\test\New folder\PerpustakaanMVC\DataModels\obj\Debug\DataModels.dll
+E:\test\New folder\PerpustakaanMVC\DataModels\obj\Debug\DataModels.pdb
+E:\test\New folder\PerpustakaanMVC\DataModels\obj\Debug\DataModels.csprojAssemblyReference.cache

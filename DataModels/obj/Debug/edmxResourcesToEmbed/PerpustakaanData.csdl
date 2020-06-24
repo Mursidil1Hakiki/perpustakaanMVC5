@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PerpustakaanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Buku">
+    <Key>
+      <PropertyRef Name="ID_Buku" />
+    </Key>
+    <Property Name="ID_Buku" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JudulBuku" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Pengarang" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="jenisBuku" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="HargaSewa" Type="Int32" />
+    <NavigationProperty Name="Sewas" Relationship="Self.FK__Sewa__ID_Buku__286302EC" FromRole="Buku" ToRole="Sewa" />
+  </EntityType>
+  <EntityType Name="Register_User">
+    <Key>
+      <PropertyRef Name="ID_User" />
+    </Key>
+    <Property Name="ID_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NamaUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sewas" Relationship="Self.FK__Sewa__ID_User__276EDEB3" FromRole="Register_User" ToRole="Sewa" />
+  </EntityType>
+  <EntityType Name="Sewa">
+    <Key>
+      <PropertyRef Name="ID_Sewa" />
+    </Key>
+    <Property Name="ID_Sewa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_User" Type="Int32" />
+    <Property Name="ID_Buku" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="HargaSewa" Type="Int32" />
+    <Property Name="tglMulai" Type="DateTime" Precision="0" />
+    <Property Name="tglSelesai" Type="DateTime" Precision="0" />
+    <Property Name="numberOfDay" Type="Int32" />
+    <Property Name="sewaAmount" Type="Int32" />
+    <NavigationProperty Name="Buku" Relationship="Self.FK__Sewa__ID_Buku__286302EC" FromRole="Sewa" ToRole="Buku" />
+    <NavigationProperty Name="Register_User" Relationship="Self.FK__Sewa__ID_User__276EDEB3" FromRole="Sewa" ToRole="Register_User" />
+  </EntityType>
+  <Association Name="FK__Sewa__ID_Buku__286302EC">
+    <End Role="Buku" Type="Self.Buku" Multiplicity="0..1" />
+    <End Role="Sewa" Type="Self.Sewa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buku">
+        <PropertyRef Name="ID_Buku" />
+      </Principal>
+      <Dependent Role="Sewa">
+        <PropertyRef Name="ID_Buku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sewa__ID_User__276EDEB3">
+    <End Role="Register_User" Type="Self.Register_User" Multiplicity="0..1" />
+    <End Role="Sewa" Type="Self.Sewa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Register_User">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="Sewa">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PerpustakaanDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bukus" EntityType="Self.Buku" />
+    <EntitySet Name="Register_User" EntityType="Self.Register_User" />
+    <EntitySet Name="Sewas" EntityType="Self.Sewa" />
+    <AssociationSet Name="FK__Sewa__ID_Buku__286302EC" Association="Self.FK__Sewa__ID_Buku__286302EC">
+      <End Role="Buku" EntitySet="Bukus" />
+      <End Role="Sewa" EntitySet="Sewas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sewa__ID_User__276EDEB3" Association="Self.FK__Sewa__ID_User__276EDEB3">
+      <End Role="Register_User" EntitySet="Register_User" />
+      <End Role="Sewa" EntitySet="Sewas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
